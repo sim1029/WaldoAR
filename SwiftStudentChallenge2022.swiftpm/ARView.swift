@@ -34,21 +34,69 @@ class ARView: UIViewController, ARSKViewDelegate, SKSceneDelegate  {
   }
   
   var isWorldSetup = false
+  var targetEmoji = ""
+  var targetEmojiX = 0
+  var targetEmojiY = 0
+  var emojiCodes = [Int]()
   
   private func setUpWorld() {
     guard let currentFrame = arView.session.currentFrame
     else { return }
     
-    // Create a transform with a translation of 0.2 meters in front of the camera.
-    var translation = matrix_identity_float4x4
-    translation.columns.3.z = -0.2
-    let transform = simd_mul(currentFrame.camera.transform, translation)
+    targetEmojiX = Int.random(in: 0..<5)
+    targetEmojiY = Int.random(in: 0..<5)
+    targetEmoji = getRandomEmoji()
     
-    // Add a new anchor to the session.
-    let anchor = ARAnchor(transform: transform)
-    arView.session.add(anchor: anchor)
+    // Create grid of transformations in front of camera
+    for i in 0..<5 {
+      for j in 0..<5 {
+        var translation = matrix_identity_float4x4
+        translation.columns.3.z = -0.5
+        translation.columns.3.x = -0.2 + Float(j) * 0.1
+        translation.columns.3.y = 0.2 - Float(i) * 0.1
+        let transform = simd_mul(currentFrame.camera.transform, translation)
+        
+        var emojiName = "node"
+        if i == targetEmojiX && j == targetEmojiY{
+          emojiName = "target"
+        }
+        // Add the anchors to the session
+        let anchor = ARAnchor(name: emojiName, transform: transform)
+        arView.session.add(anchor: anchor)
+      }
+    }
     
     isWorldSetup = true
+  }
+  
+  func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
+    var randomEmoji = getRandomEmoji()
+    if anchor.name! == "target" {
+      print("Target Emoji: \(targetEmoji)")
+      randomEmoji = targetEmoji
+    }
+    return SKLabelNode(text: randomEmoji)
+  }
+  
+  func getRandomEmoji() -> String {
+    var emoji = ""
+    while emoji == targetEmoji || emoji == "" {
+      var emojiCode = Int.random(in: 129292...129535)
+      emoji = String(UnicodeScalar(emojiCode) ?? "-")
+      while !isEmojiSupported(emoji: emoji) || !(emojiCodes.contains(emojiCode)) {
+        emojiCode = Int.random(in: 129292...129535)
+        emoji = String(UnicodeScalar(emojiCode) ?? "-")
+      }
+      emojiCodes.append(emojiCode)
+    }
+    return emoji
+  }
+  
+  func isEmojiSupported(emoji: String) -> Bool {
+    let uniChars = Array(emoji.utf16)
+    let font = CTFontCreateWithName("AppleColorEmoji" as CFString, 0.0, nil)
+    var glyphs: [CGGlyph] = [0, 0]
+    return CTFontGetGlyphsForCharacters(font, uniChars, &glyphs, uniChars.count)
   }
   
   
@@ -68,6 +116,7 @@ class ARView: UIViewController, ARSKViewDelegate, SKSceneDelegate  {
     if !isWorldSetup {
       setUpWorld()
     }
+    
   }
   
   
@@ -84,6 +133,7 @@ class ARView: UIViewController, ARSKViewDelegate, SKSceneDelegate  {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     let configuration = ARWorldTrackingConfiguration()
+    configuration.worldAlignment = .gravityAndHeading
     arView.session.run(configuration)
     arView.delegate = self
   }
@@ -93,19 +143,24 @@ class ARView: UIViewController, ARSKViewDelegate, SKSceneDelegate  {
     arView.session.pause()
   }
   
-  // MARK: - ARSKViewDelegate
-  func sessionWasInterrupted(_ session: ARSession) {}
+  // MARK: - ARSKViewSessionDelegate
+  func session(_ session: ARSession,
+               didFailWithError error: Error) {
+    print("Session Failed - probably due to lack of camera access")
+  }
   
-  func sessionInterruptionEnded(_ session: ARSession) {}
+  func sessionWasInterrupted(_ session: ARSession) {
+    print("Session interrupted")
+  }
   
-  func session(_ session: ARSession, didFailWithError error: Error)
-  {}
+  func sessionInterruptionEnded(_ session: ARSession) {
+    print("Session resumed")
+    arView.session.run(session.configuration!,
+                       options: [.resetTracking,
+                                 .removeExistingAnchors])
+  }
   
   func session(_ session: ARSession, cameraDidChangeTrackingState
                camera: ARCamera) {}
-  
-  func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
-    return SKLabelNode(text: "👾")
-  }
   
 }

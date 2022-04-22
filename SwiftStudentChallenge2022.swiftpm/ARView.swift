@@ -92,6 +92,7 @@ class ARView: UIViewController, ARSKViewDelegate, SKSceneDelegate  {
     return emoji
   }
   
+  
   func isEmojiSupported(emoji: String) -> Bool {
     let uniChars = Array(emoji.utf16)
     let font = CTFontCreateWithName("AppleColorEmoji" as CFString, 0.0, nil)

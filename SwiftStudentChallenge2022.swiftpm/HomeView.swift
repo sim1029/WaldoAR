@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct HomeView: View {
-  @Binding var page: String
-  @State var currImage: UIImage = "🙂".textToImage()
+  @Binding var currImage: UIImage
+  @State var currInstruction: Int = 0
+  
   let imageTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
   
   var body: some View {
@@ -36,26 +37,18 @@ struct HomeView: View {
         
         Spacer()
         
-        Button(action: {
-          self.page = "ARView"
-        }) {
-          Text("New Game")
-            .font(.title2)
-            .foregroundColor(.black)
-        }
+        NavigationLink("New Game", destination: GameView())
+        .font(.title2)
+        .foregroundColor(.black)
         .frame(width: 300, height: 30)
         .padding()
         .background(.yellow)
         .cornerRadius(50)
         .padding()
         
-        Button(action: {
-          self.page = "Instructions"
-        }) {
-          Text("View Instructions")
-            .font(.title2)
-            .foregroundColor(.black)
-        }
+        NavigationLink("View Instructions", destination: InstructionsView())
+        .font(.title2)
+        .foregroundColor(.black)
         .frame(width: 300, height: 30)
         .padding()
         .background(.yellow)
@@ -68,18 +61,20 @@ struct HomeView: View {
       .foregroundColor(.white)
     }
     .onReceive(imageTimer) { _ in
-      currImage = getRandomEmoticon()
+      if let newImage = getRandomEmoticon() {
+        currImage = newImage
+      }
     }
   }
 }
 
-func getRandomEmoticon() -> UIImage {
+func getRandomEmoticon() -> UIImage? {
   var emoji = ""
   var emojiCode = Int.random(in: 0x1F600...0x1F64F)
-  emoji = String(UnicodeScalar(emojiCode) ?? "-")
+  emoji = String(UnicodeScalar(emojiCode)!)
   while !isEmojiSupported(emoji: emoji) {
     emojiCode = Int.random(in: 0x1F600...0x1F64F)
-    emoji = String(UnicodeScalar(emojiCode) ?? "-")
+    emoji = String(UnicodeScalar(emojiCode)!)
   }
   return emoji.textToImage()
 }
@@ -93,6 +88,6 @@ func isEmojiSupported(emoji: String) -> Bool {
 
 struct HomeView_Previews: PreviewProvider {
   static var previews: some View {
-    HomeView(page: .constant("Home"))
+    HomeView(currImage: .constant("😀".textToImage()!))
   }
 }

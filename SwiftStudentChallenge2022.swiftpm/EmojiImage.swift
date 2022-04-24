@@ -7,7 +7,7 @@
 
 import UIKit
 extension String {
-  func textToImage() -> UIImage! {
+  func textToImage() -> UIImage? {
     let nsString = (self as NSString)
     let font = UIFont.systemFont(ofSize: 200) // you can change your font size here
     let stringAttributes = [NSAttributedString.Key.font: font]
@@ -20,6 +20,6 @@ extension String {
     let image = UIGraphicsGetImageFromCurrentImageContext() // create image from context
     UIGraphicsEndImageContext() //  end image context
     
-    return image ?? UIImage()
+    return image
   }
 }

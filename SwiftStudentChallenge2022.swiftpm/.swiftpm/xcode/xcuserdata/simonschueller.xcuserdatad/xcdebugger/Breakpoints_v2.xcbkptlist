@@ -3,4 +3,147 @@
    uuid = "F53F7D17-9A79-4A16-8BD7-D79EF67DCA1B"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8079D6B1-7B1D-4C5D-943E-A67CCF7AF7CD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InstructionsView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E668C82C-7070-4E5A-931E-48E551244294"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InstructionsView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "InstructionsView"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "E668C82C-7070-4E5A-931E-48E551244294 - 4c763e4fd0cb52ba"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftStudentChallenge2022.InstructionsView.currInstruction.getter : Swift.Int"
+                  moduleName = "SwiftStudentChallenge2022"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/simonschueller/Programming/Projects/SwiftStudentChallenge/WaldoAR/SwiftStudentChallenge2022.swiftpm/InstructionsView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "167">
+               </Location>
+               <Location
+                  uuid = "E668C82C-7070-4E5A-931E-48E551244294 - 17e64af3d0f4e6ae"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftStudentChallenge2022.InstructionsView.currInstruction.setter : Swift.Int"
+                  moduleName = "SwiftStudentChallenge2022"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/simonschueller/Programming/Projects/SwiftStudentChallenge/WaldoAR/SwiftStudentChallenge2022.swiftpm/InstructionsView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "154">
+               </Location>
+               <Location
+                  uuid = "E668C82C-7070-4E5A-931E-48E551244294 - 403798a317b4d1bd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftStudentChallenge2022.InstructionsView.currInstruction.modify : Swift.Int"
+                  moduleName = "SwiftStudentChallenge2022"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/simonschueller/Programming/Projects/SwiftStudentChallenge/WaldoAR/SwiftStudentChallenge2022.swiftpm/InstructionsView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "E668C82C-7070-4E5A-931E-48E551244294 - 2734e78f5d92aede"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftStudentChallenge2022.InstructionsView.currInstruction.modify : Swift.Int with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "SwiftStudentChallenge2022"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/simonschueller/Programming/Projects/SwiftStudentChallenge/WaldoAR/SwiftStudentChallenge2022.swiftpm/InstructionsView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "51">
+               </Location>
+               <Location
+                  uuid = "E668C82C-7070-4E5A-931E-48E551244294 - 315f1725308518e6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftStudentChallenge2022.InstructionsView.$currInstruction.getter : SwiftUI.Binding&lt;Swift.Int&gt;"
+                  moduleName = "SwiftStudentChallenge2022"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/simonschueller/Programming/Projects/SwiftStudentChallenge/WaldoAR/SwiftStudentChallenge2022.swiftpm/InstructionsView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "210">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A567720D-8CC4-48B5-A78A-EEFA5A9A1674"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InstructionsView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "456CE9A1-C38E-448D-8279-9E5C8FCFF667"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InstructionsView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "InstructionsView"
+            landmarkType = "14">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

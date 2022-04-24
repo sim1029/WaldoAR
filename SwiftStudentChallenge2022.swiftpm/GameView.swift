@@ -21,27 +21,18 @@ struct NavigationIndicator: UIViewControllerRepresentable {
 }
 
 struct GameView: View {
-  @Binding var page: String
   
   var body: some View {
     ZStack {
+      Color.blue.ignoresSafeArea()
       NavigationIndicator()
-      VStack {
-        Spacer()
-        Spacer()
-        Button("Home") {
-          self.page = "Home"
-        }.padding()
-          .background(RoundedRectangle(cornerRadius: 10)
-            .foregroundColor(Color.white).opacity(0.7))
-      }
+        .ignoresSafeArea(.all, edges: .bottom)
     }
   }
 }
 
 struct GameView_Previews: PreviewProvider {
-  @Binding var page: String
   static var previews: some View {
-    GameView(page: .constant("ARView"))
+    GameView()
   }
 }

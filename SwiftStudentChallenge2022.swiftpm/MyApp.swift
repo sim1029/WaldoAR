@@ -4,7 +4,13 @@ import SwiftUI
 struct MyApp: App {
   var body: some Scene {
     WindowGroup {
-      ContentView()
+      NavigationView {
+        ContentView()
+          .navigationBarTitle("")
+          .navigationBarHidden(true)
+      }
+      .tint(.white)
+      .accentColor(.white)
     }
   }
 }
